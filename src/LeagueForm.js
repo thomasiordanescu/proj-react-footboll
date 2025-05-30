@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import {GetLeagueUrl, GetTeamUrl, BuildSeasonDropDown, SetLeagueData} from './AppUtils';
+import React, { useState } from 'react';
+import {SetLeagueData} from './AppUtils';
 
 function LeagueForm({ setLeagueData }) {
   const [inputs, setInputs] = useState({});
@@ -17,19 +16,24 @@ function LeagueForm({ setLeagueData }) {
       return;
     }
 
-    /*axios.get(GetLeagueUrl(inputs.leagueName, null))
-        .then(response => {
-          setLeagueData(response.data);
-        })
-        .catch(error => {
-          console.error(error);
-        });*/
-    SetLeagueData(inputs.leagueName, null, setLeagueData);
-    //setCookie('lastLeague', inputs.leagueName, { path: '/' });
+    SetLeagueData(inputs.leagueName, inputs.season, setLeagueData);
     localStorage.setItem('lastLeague', inputs.leagueName);
+    localStorage.setItem('season', inputs.season);
 
-    setInputs({});
+    //setInputs({});
   };
+
+  function BuildSeasonDropDown() {
+    let year = new Date().getFullYear();
+   
+    const seasons = []
+    for (let i = year; i > year - 16; i--) {
+      seasons.push(i)
+    }
+    const options = seasons.map((s) => <option value={s}>{s}-{s + 1}</option>);
+   
+    return options;
+  }
 
   return (
     <form id="add-movie-form" onSubmit={HandleSubmit}>
@@ -51,6 +55,18 @@ function LeagueForm({ setLeagueData }) {
           <option value="4334">French Ligue 1</option>
           <option value="4335">Spanish La Liga</option>
         </select>
+
+        <label htmlFor="rating-field">Season:</label>
+        <select
+          id="rating-field"
+          className="form-control"
+          name="season"
+          value={inputs.season || ""}
+          onChange={handleChange}
+        >
+            <BuildSeasonDropDown />
+        </select>
+        
 
         <input
           type="submit"
