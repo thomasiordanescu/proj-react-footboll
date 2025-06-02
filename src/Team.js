@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Team = () => {
+    alert(localStorage.getItem('currentTeam'));
     return (
         <div>
             <h1>Team Page</h1>

@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import {SetLeagueData} from './AppUtils';
 
 function LeagueForm({ setLeagueData }) {
-  const [inputs, setInputs] = useState({});
+  //const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState(() => {
+    return {
+      season: localStorage.getItem('season') || new Date().getFullYear() - 1,
+      leagueName: localStorage.getItem('lastLeague') || "0",
+    };
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
