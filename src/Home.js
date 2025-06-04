@@ -64,8 +64,8 @@ function Home() {
   
     return (
       <div className="container">
-        <h1>League Page</h1>
-        <Link to="/team">Link to team page</Link>
+        <h1>FootyLeague</h1>
+        <Link to="/team">Your favorite teams</Link>
         <LeagueForm setLeagueData={setLeagueData}  />
         <hr />
         <h2>League Status</h2>
