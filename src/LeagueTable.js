@@ -1,8 +1,24 @@
+import { useNavigate } from "react-router-dom";
+import React from 'react';
+
+function GenerateTeamLink({item}) {
+    const navigate = useNavigate();
+
+    const onTeamClick = () => {
+        localStorage.setItem('currentTeam', item.idTeam);
+        navigate("/team");
+    }
+
+    return (
+        <button class="link-button" onClick={onTeamClick}>{item.strTeam}</button>
+    )
+}
+
 function GenerateRow({item}) {
     return (
         <tr key={item.id}>
             <td>{item.intRank}</td>
-            <td><img src={item.strBadge} alt='' height={50} width={50} />{item.strTeam}</td>
+            <td><img src={item.strBadge} alt='' height={50} width={50} /><GenerateTeamLink item={item} /></td>
             <td>{item.intGoalDifference}</td>
             <td>{item.intPoints}</td>
         </tr>

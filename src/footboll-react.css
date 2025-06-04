@@ -28,6 +28,19 @@
     padding: 8px 0;
     border-bottom: 1px solid #ddd;
 }
+
+.link-button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+  
+    -webkit-appearance: none;
+  }
   
 /*.star-row img.star-icon {
     width: 5px;
