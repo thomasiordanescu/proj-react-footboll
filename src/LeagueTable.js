@@ -1,30 +1,46 @@
-function GenerateRow({item}) {
-    return (
-        <tr key={item.id}>
-            <td>{item.intRank}</td>
-            <td><img src={item.strBadge} alt='' height={50} width={50} />{item.strTeam}</td>
-            <td>{item.intGoalDifference}</td>
-            <td>{item.intPoints}</td>
-        </tr>
-    ) 
+function GenerateRow({ item, onTeamHover, onTeamLeave }) {
+  return (
+    <tr key={item.idTeam}>
+      <td>{item.intRank}</td>
+      <td
+        className="team-cell"
+        onMouseEnter={(e) => onTeamHover(e, item.idTeam)}
+        onMouseLeave={onTeamLeave}
+      >
+        <img src={item.strBadge} alt="" height={30} width={30} />
+        {item.strTeam}
+      </td>
+      <td>{item.intGoalDifference}</td>
+      <td>{item.intPoints}</td>
+    </tr>
+  );
 }
 
-function LeagueTable({leagueData}) {
+function LeagueTable({ leagueData, onTeamHover, onTeamLeave }) {
+  const dataArray = leagueData?.table || [];
 
-    const dataArray = leagueData?.table || [];
-    return (
-        <table>
-            <tr key={"header"}>
-                <th>Rank</th>
-                <th>Team</th>
-                <th>Goal Diff</th>
-                <th>Points</th>
-            </tr>
-            {dataArray.map((item) => (
-                <GenerateRow item={item} />
-            ))}
-        </table>
-    );
+  return (
+    <table>
+      <thead>
+        <tr key="header">
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Goal Diff</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {dataArray.map((item) => (
+          <GenerateRow
+            key={item.idTeam}
+            item={item}
+            onTeamHover={onTeamHover}
+            onTeamLeave={onTeamLeave}
+          />
+        ))}
+      </tbody>
+    </table>
+  );
 }
 
 export default LeagueTable;
