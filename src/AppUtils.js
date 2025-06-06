@@ -8,8 +8,8 @@ export function GetLeagueUrl(id, season) {
     return result;
 }
 
-export function GetTeamUrl(id, season) {
-    let result = 'https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id=' + id;
+export function GetTeamUrl(teamName) {
+    let result = 'https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t=' + teamName;
 
     return result;
 }
@@ -21,5 +21,15 @@ export function SetLeagueData(leagueName, season, setLeagueData) {
         })
         .catch(error => {
           console.error(error);
+        });
+}
+
+export function SetTeamData(teamId, setTeamData) {
+    axios.get(GetTeamUrl(teamId))
+        .then(response => {
+            setTeamData(response.data);
+        })
+        .catch(error => {
+            console.error(error);
         });
 }

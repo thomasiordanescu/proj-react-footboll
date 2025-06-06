@@ -197,6 +197,19 @@ table.league-table tr:hover {
   flex-grow: 1;
 }
 
+.link-button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    background: transparent;
+    color: currentColor;
+  
+    -webkit-appearance: none;
+}
+
 /* Team Tooltip Styling */
 .team-tooltip {
   position: absolute;
