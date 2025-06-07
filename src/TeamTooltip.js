@@ -1,6 +1,10 @@
 import React from 'react';
+import { useFavorites } from './AddToFavorites';
 
 const TeamTooltip = ({ teamInfo, position }) => {
+  const { favorites } = useFavorites();
+  const isFavorite = teamInfo && favorites.some(f => f.idTeam === teamInfo.idTeam);
+
   if (!teamInfo || !teamInfo.strTeam) {
     return (
       <div
@@ -28,7 +32,10 @@ const TeamTooltip = ({ teamInfo, position }) => {
       }}
     >
       <div>
-        <h3>{teamInfo.strTeam}</h3>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h3>{teamInfo.strTeam}</h3>
+          {isFavorite && <span style={{ color: '#ffc20c', marginLeft: '10px' }}>★</span>}
+        </div>
         <img
           src={teamInfo.strTeamBadge}
           alt={teamInfo.strTeam}
@@ -36,11 +43,11 @@ const TeamTooltip = ({ teamInfo, position }) => {
         />
         <p>Country: {teamInfo.strCountry}</p>
         <p>Stadium: {teamInfo.strStadium}</p>
-        <p>Capacity: {teamInfo.intStadiumCapacity}</p>
+        <p>Capacity: {teamInfo.intStadiumCapacity?.toLocaleString() || 'N/A'}</p>
         <p>Founded: {teamInfo.intFormedYear}</p>
         <p>
           Website:{' '}
-          <a href={teamInfo.strWebsite} target="_blank" rel="noreferrer">
+          <a href={teamInfo.strWebsite} target="_blank" rel="noreferrer" style={{ color: '#ffc20c' }}>
             {teamInfo.strWebsite}
           </a>
         </p>

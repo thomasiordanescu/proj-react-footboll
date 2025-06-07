@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from 'react';
+import { useFavorites } from "./AddToFavorites";
 
 function GenerateTeamLink({item}) {
     const navigate = useNavigate();
@@ -15,14 +16,18 @@ function GenerateTeamLink({item}) {
 }
 
 function GenerateRow({ item, onTeamHover, onTeamLeave }) {
+  const { toggleFavorite } = useFavorites();
+
   return (
-    <tr key={item.idTeam}>
+    <tr 
+      key={item.idTeam}
+      onMouseEnter={(e) => onTeamHover(e, item.strTeam)}
+      onMouseLeave={onTeamLeave}
+      onDoubleClick={() => toggleFavorite(item)}
+      className="team-row"
+    >
       <td className="align-center">{item.intRank}</td>
-      <td
-        className="team-cell"
-        onMouseEnter={(e) => onTeamHover(e, item.strTeam)}
-        onMouseLeave={onTeamLeave}
-      >
+      <td className="team-cell">
         <img src={item.strBadge} alt="" height={30} width={30} />
         <span className="team-name"><GenerateTeamLink item={item} /></span>
       </td>

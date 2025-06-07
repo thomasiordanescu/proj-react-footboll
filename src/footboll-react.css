@@ -16,7 +16,7 @@ h1 {
   color: #ffc20c;
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin: 30px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -137,6 +137,7 @@ select:focus {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 50px;
 }
 
 
@@ -206,8 +207,7 @@ table.league-table tr:hover {
     cursor: pointer;
     background: transparent;
     color: currentColor;
-  
-    -webkit-appearance: none;
+    --webkit-appearance: none;
 }
 
 /* Team Tooltip Styling */
@@ -280,6 +280,210 @@ table.league-table tr:hover {
   align-items: center;
   padding: 12px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FAVORITES PAGE */
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.team-card {
+  background: rgba(26, 38, 31, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 194, 12, 0.3);
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  background: linear-gradient(to right, #1a261f, #2a3c2d);
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rank-badge {
+  background: #ffc20c;
+  color: #000;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.team-info {
+  padding: 20px;
+  text-align: center;
+  background: rgba(26, 38, 31, 0.4);
+}
+
+.team-info img {
+  max-height: 80px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.team-info h3 {
+  margin: 0;
+  color: #ffc20c;
+  font-size: 1.4rem;
+}
+
+.team-stats {
+  display: flex;
+  background: rgba(26, 38, 31, 0.6);
+  padding: 15px 0;
+  border-top: 1px solid rgba(255, 194, 12, 0.1);
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+}
+
+.stat span {
+  display: block;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.stat strong {
+  font-size: 1.4rem;
+  color: #ffc20c;
+  font-weight: 700;
+}
+
+.team-link {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  background: #ffc20c;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.team-link:hover {
+  background: #e6ae0a;
+  color: #000;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(26, 38, 31, 0.4);
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 2px dashed rgba(255, 194, 12, 0.3);
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.back-link {
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 60px;
+  margin-bottom: 0;
+  color: #ffc20c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  color: #fafffe;
+  text-decoration: underline;
+}
+
+/* TEAM DETAIL */
+.team-detail {
+  margin-top: 80px;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 194, 12, 0.3);
+}
+
+.team-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #ffc20c;
+  display: flex;
+  align-items: center;
+}
+
+.favorite-badge {
+  background: #ffc20c;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-left: 15px;
+  font-weight: 600;
+}
+
+.team-info-grid {
+  background: rgba(26, 38, 31, 0.4);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.team-info-grid p {
+  margin: 8px 0;
+  color: #fafffe;
+  font-size: 18px;
+}
+
+.team-info-grid p strong {
+  color: #ffc20c;
+}
+
+.team-description {
+  line-height: 1.7;
+  font-size: 18px;
+  color: #fafffe;
+  padding: 15px;
+  background: rgba(26, 38, 31, 0.4);
+  border-radius: 8px;
+}
+
+.team-row {
+  transition: background-color 0.2s;
+}
+
+.team-row:hover {
+  background-color: rgba(255, 194, 12, 0.08);
+  cursor: pointer;
 }
 
 /* Mediq Queries Styling (For repsonsive design) */
