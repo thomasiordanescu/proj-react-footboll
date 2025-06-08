@@ -37,7 +37,7 @@ const TeamTooltip = ({ teamInfo, position }) => {
           {isFavorite && <span style={{ color: '#ffc20c', marginLeft: '10px' }}>★</span>}
         </div>
         <img
-          src={teamInfo.strTeamBadge}
+          src={teamInfo.strBadge}
           alt={teamInfo.strTeam}
           width="50"
         />

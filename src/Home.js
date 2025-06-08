@@ -47,8 +47,8 @@ function Home() {
     const handleTeamHover = async (e, teamId) => {
       setHoveredTeam(teamId);
       setToolTipPosition({
-        x: e.clientX + window.scrollX + 15,
-        y: e.clientY + window.scrollY,
+        x: e.clientX + 45,
+        y: e.clientY - 240,
       });
 
       const teamData = await fetchTeamData(teamId);
@@ -69,6 +69,7 @@ function Home() {
         <LeagueForm setLeagueData={setLeagueData}  />
         <hr />
         <h2>League Status</h2>
+        <p>Double-click on team badge in the league table to add/remove as favorite.</p>
         <LeagueTable
           leagueData={leagueData}
           onTeamHover={handleTeamHover}

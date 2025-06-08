@@ -13,7 +13,7 @@ const Favorites = () => {
       {favorites.length === 0 ? (
         <div className="empty-state">
           <p>No favorites yet!</p>
-          <p>Double-click teams in the league table to add them</p>
+          <p>Double-click on team badge in the league table to add/remove as favorite.</p>
         </div>
       ) : (
         <div className="favorites-grid">

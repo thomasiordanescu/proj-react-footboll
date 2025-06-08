@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Before running
+
+In the project directory, install if not already:
+
+### `npm install axios`
+### `npm install browser-router`
+
 ## Available Scripts
 
 In the project directory, you can run:

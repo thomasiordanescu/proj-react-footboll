@@ -26,8 +26,8 @@ const Team = () => {
             {team ? (
                 <div className="team-detail">
                     <div className="team-header">
-                        <img src={team.strTeamBadge} alt={team.strTeam} height={100} />
-                        <h1>{team.strTeam}</h1>
+                        <img src={team.strBadge} alt="" height={200} width={200} />
+                        <img src={team.strLogo} alt="" height={200} width={600} />
                         {isFavorite && <span className="favorite-badge">★ Favorite</span>}
                     </div>
                     
