@@ -4,10 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Before running
 
-In the project directory, install if not already:
+In the project directory, install dependencies:
 
-### `npm install axios`
-### `npm install browser-router`
+### `npm install`
 
 ## Available Scripts
 
