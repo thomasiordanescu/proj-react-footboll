@@ -1,76 +1,105 @@
-# Getting Started with Create React App
+# FootyLeague - A Football Application Built with React. 
+*A Football application that delivers real-time league stats and team information.*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+**FootyLeague** is a web application that lets users browse different football league tables by seasons and explore information about the team through dynamic API integration. Built with **React**, the web app gathers live football data from [TheSportDB API](https://www.thesportsdb.com/) to show the user:
+- Leage standings for the selected seasons.
+- Detailed team information (such as team name, description of the team, team logos etc.) when you click on the football team of your choice.
 
-## Before running
+## FootyLeague - API
+The API we've used for this React project is called **TheSportDB API** to fetch dynamic football data.
 
-In the project directory, install dependencies:
+### What we used the API for:
+- **League Table:** Shows the season table for a selected season and league (by choosing a specific year).
+- **Team Info:** Shows detailed team information (team name, logo, team description etc.) when the user hovers over a team and clicks on the team for more info.
 
-### `npm install`
+### The API endpoints used in this project
+| Purpose                          | API Endpoint                                                                 |
+|----------------------------------|------------------------------------------------------------------------------|
+| To aceess League Status (Season)            | `https://www.thesportsdb.com/api/v1/json/123/lookuptable.php?l=LEAGUE_ID&s=YYYY-YYYY` |
+| Get Team Information             | `https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id=TEAM_ID`             |
 
-## Available Scripts
 
-In the project directory, you can run:
+## Why we chose React over other competitive JS frameworks
+We chose to use **React** in FootyLeague for the following reasons:
+### 1. React's Component-based Architecture
+React allows us to break down the UI into reusable, modular components like LeagueForm, LeagueTable, and Team. This made our app scalable, maintainable, and easier to debug.
 
-### `npm start`
+### 2. React's Virtual DOM
+React’s Virtual DOM ensures lightning-fast rendering. When a user switches between seasons or selects a team, React only updates what’s necessary. This is ideal for football apps where real-time interactivity and responsiveness are key.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. React's Vast Ecosystem and Community
+React has a vast ecosystem and community:
+- **Routing:** React Router
+- **State management:** Context API (or Redux if we choose to scale further)
+- **HTTP requests:** Axios or Fetch API
+- **Tooling:** Create React App for rapid bootstrapping
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Comparison: React vs. Angular & Vue
+| Feature        | React         | Vue                          | Angular            |
+| -------------- | ---------------- | ---------------------------- | ------------------ |
+| Popularity     | ✅ Widely adopted | 🔸 Growing                   | 🔸 Enterprise use  |
+| Learning Curve | ✅ Easy       | ✅ Easy/Medium                       | ❌ Hard            |
+| Performance    | ✅ Excellent      | ✅ Excellent                  | ✅ Excellent        |
+| Flexibility    | ✅ Unopinionated  | 🔸 Slightly more opinionated | ❌ Very opinionated |
+| Ecosystem      | ✅ Vast         | 🔸 Small                   | ✅ Vast     |
 
-### `npm test`
+## Project Structure
+Below is the full project structure of Footyleague:
+```
+PROJ-REACT-FOOTBALL/
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+│
+├── src/
+│   ├── AddToFavorites.js         # Component to add teams to favorites
+│   ├── App.css                   # Global CSS for App component
+│   ├── App.js                    # Root React component
+│   ├── App.test.js               # Unit tests for App
+│   ├── AppUtils.js               # Helper functions and API fetch logic
+│   ├── Favorites.js              # Component displaying favorite teams
+│   ├── football-react.css        # Additional styling
+│   ├── Home.js                   # Home page component
+│   ├── index.css                 # Global styles
+│   ├── index.js                  # React DOM entry point
+│   ├── LeagueForm.js             # Component for selecting league and season
+│   ├── LeagueTable.js            # Component to display the league standings
+│   ├── logo.svg                  # Logo asset
+│   ├── reportWebVitals.js        # Performance measurement
+│   ├── setupTests.js             # Jest setup
+│   ├── Team.js                   # Component to show selected team info
+│   └── TeamTooltip.js            # Tooltip component for team hover
+│
+├── .gitignore                    # Files and folders to be ignored by Git
+├── package-lock.json             # Exact versions of dependencies
+├── package.json                  # Project metadata and dependencies
+└── README.md                     # Project documentation
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contact
+### The Developers behind this React project
+Please feel free to contact us via **GitHub** or **Gmail**:
+### GitHub
+**Mustafa Mohammed:** ([Mustafa Mohammed](https://github.com/mustafa-mahamud-mohammed-2004))
 
-### `npm run build`
+**Thomas Iordanescu:** ([Thomas Iordanescu](https://github.com/thomasiordanescu))
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Gmail
+**Mustafa Mohammed:** ([Mustafa Mohammed](mustafa.mohammed.business@gmail.com))
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Thomas Iordanescu:** ([Thomas Iordanescu](thomas.iordanescu@gmail.com))
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Resources
+- [React Documentation](https://react.dev/)
+- [TheSportDB API](https://www.thesportsdb.com/)
+- [Create React App Docs](https://create-react-app.dev/docs/getting-started/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⭐️ If you liked this project...
+Give us a ⭐️ on GitHub and consider contributing!
+Your support means a lot ❤️
